@@ -3,20 +3,17 @@
     <p>Tournament List</p>
 
     <div class="mb-4">
-        <router-link :to="{ name: 'new-post' }" class="btn btn-success">New Post</router-link>
+        <router-link to="/createTournament" class="nav-link">New Tournament</router-link>
     </div>
 
     <table class="table table-sm table-striped">
         <tr>
             <th>Title</th>
-            <th>Date</th>
             <th></th>
         </tr>
-        <tr v-for="post in tournaments" v-bind:key="post.id">
-            <td>{{ post.title }}</td>
-            <!-- <td>{{ post.postDate | moment("MM/DD/YYYY") }}</td> -->
+        <tr v-for="tournament in tournaments" v-bind:key="tournament.id">
+            <td>{{ tournament.title }}</td>
             <td>
-                <router-link :to="{ name: 'edit-post', params: { id: post.id } }">Edit</router-link>
             </td>
         </tr>
     </table>
@@ -49,16 +46,6 @@ export default {
                     error => {
                         console.log(error);
                     });
-
-            //   axios.get(this.apiUrl)
-            //         .then(function (response) {
-
-            //             this.tournaments = response.data;
-            //         })
-            //         .catch(function (error) {
-            //             console.log(error);
-            //         });
-
         }
     }
 }

@@ -37,8 +37,6 @@ export default {
     },
     methods: {
         saveTournament() {
-            console.log('save post');
-
             var config = {
                 method: 'post',
                 url: this.apiUrl,
@@ -50,7 +48,7 @@ export default {
 
             axios(config)
                 .then(() => {
-                    console.log('Saved');
+                        console.log('Saved');
                     },
                     error => {
                         console.log(error);
